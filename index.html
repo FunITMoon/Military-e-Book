@@ -93,17 +93,9 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        config.devicePixelRatio = 1;
-
+        //config.devicePixelRatio = 1;
         canvas.style.width = window.innerWidth + "px";
-    canvas.style.height = window.innerHeight + "px";
-
-    // orientationchange 이벤트 처리 (가로/세로 변경)
-    window.addEventListener("resize", () => {
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
-    });
-
+        canvas.style.height = window.innerHeight + "px";
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
@@ -123,15 +115,6 @@
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
-
-                setTimeout(()=>{
-                    try {
-                        unityInstance.SetFullscreen(1);
-                    }catch(e){
-                        console.error("Fullscreen transition failed: ", e);
-                    }
-                }, 500);
-
               }).catch((message) => {
                 alert(message);
               });
